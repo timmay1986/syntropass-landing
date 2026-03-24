@@ -232,11 +232,11 @@
       <div class="card-icon chrome">
         <svg width="28" height="28" viewBox="0 0 24 24" fill="#4285f4"><circle cx="12" cy="12" r="4.5" fill="none" stroke="#4285f4" stroke-width="1.5"/><path d="M12 7.5A4.5 4.5 0 007.5 12H1.5A10.5 10.5 0 0112 1.5a10.5 10.5 0 019.08 5.25l-5.2 3A4.49 4.49 0 0012 7.5z" opacity="0.9"/><path d="M16.5 12a4.5 4.5 0 01-2.12 3.82l-5.2 3A10.5 10.5 0 011.5 12h6A4.5 4.5 0 0012 16.5a4.49 4.49 0 003.88-2.25z" fill="#34a853" opacity="0.9"/><path d="M14.38 15.82A4.5 4.5 0 017.5 12a4.49 4.49 0 01.62-2.25l-5.2-3A10.5 10.5 0 0012 22.5a10.5 10.5 0 009.08-5.25l-5.2-3z" fill="#fbbc04" opacity="0.9"/></svg>
       </div>
-      <span class="badge badge-stable">v1.0.0</span>
+      <span class="badge badge-stable" id="v-ext">v1.1.0</span>
       <h2>Chrome Extension</h2>
       <p>Auto-Fill und Auto-Save direkt im Browser. Erkennt Login-Felder automatisch.</p>
-      <div class="size">107 KB &middot; Chrome / Edge / Brave</div>
-      <a href="/downloads/syntropass-extension-1.0.0-chrome.zip" class="btn btn-primary">
+      <div class="size" id="s-ext">126 KB &middot; Chrome / Edge / Brave</div>
+      <a href="/downloads/SyntroPass-Extension-1.1.0-chrome.zip" id="dl-ext" class="btn btn-primary">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
         Download ZIP
       </a>
@@ -246,11 +246,11 @@
       <div class="card-icon windows">
         <svg width="28" height="28" viewBox="0 0 24 24" fill="#0078d4"><path d="M3 5.548l7.131-.975v6.886H3V5.548zm0 12.905l7.131.975v-6.889H3v5.914zm7.949 1.087L22 21v-7.541h-11.05v6.081zm0-14.08v6.081H22V3L10.949 5.46z"/></svg>
       </div>
-      <span class="badge badge-stable">v1.0.0</span>
+      <span class="badge badge-stable" id="v-desktop">v1.1.0</span>
       <h2>Windows Desktop</h2>
       <p>Native Desktop-App mit System-Tray Integration. Schneller Zugriff auf alle Passwörter.</p>
-      <div class="size">82 MB &middot; Windows 10+</div>
-      <a href="/downloads/SyntroPass-Setup-1.0.0.exe" class="btn btn-primary">
+      <div class="size" id="s-desktop">82 MB &middot; Windows 10+</div>
+      <a href="/downloads/SyntroPass-Setup-1.1.0.exe" id="dl-desktop" class="btn btn-primary">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
         Download EXE
       </a>
@@ -260,11 +260,11 @@
       <div class="card-icon android">
         <svg width="28" height="28" viewBox="0 0 24 24" fill="#3ddc84"><path d="M17.523 2.237a.6.6 0 01.218.82L16.5 5.25A8.96 8.96 0 0121 13H3a8.96 8.96 0 014.5-7.75L6.259 3.057a.6.6 0 011.038-.6L8.6 4.75a8.9 8.9 0 013.4-.67c1.2 0 2.35.24 3.4.67l1.303-2.293a.6.6 0 01.82-.218zM10 9.5a1 1 0 10-2 0 1 1 0 002 0zm6 0a1 1 0 10-2 0 1 1 0 002 0zM3 14h18v5a3 3 0 01-3 3H6a3 3 0 01-3-3v-5z"/></svg>
       </div>
-      <span class="badge badge-beta">Beta</span>
+      <span class="badge badge-beta" id="v-android">v1.1.0 Beta</span>
       <h2>Android App</h2>
       <p>Passwörter unterwegs dabei. Autofill-Service für alle Android-Apps.</p>
-      <div class="size">4.5 MB &middot; Android 8+</div>
-      <a href="/downloads/SyntroPass-1.0.0.apk" class="btn btn-primary">
+      <div class="size" id="s-android">4.5 MB &middot; Android 8+</div>
+      <a href="/downloads/SyntroPass-1.1.0.apk" id="dl-android" class="btn btn-primary">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
         Download APK
       </a>
@@ -289,5 +289,24 @@
     &copy; 2026 SyntroPass &middot; Zero-Knowledge Encryption &middot; Made in Germany
   </div>
 
+  <script>
+    fetch('/versions.json').then(r=>r.json()).then(v=>{
+      if(v.extension){
+        document.getElementById('v-ext').textContent='v'+v.extension.version;
+        document.getElementById('s-ext').textContent=v.extension.size+' \u00B7 Chrome / Edge / Brave';
+        document.getElementById('dl-ext').href='/downloads/'+v.extension.file;
+      }
+      if(v.desktop){
+        document.getElementById('v-desktop').textContent='v'+v.desktop.version;
+        document.getElementById('s-desktop').textContent=v.desktop.size+' \u00B7 Windows 10+';
+        document.getElementById('dl-desktop').href='/downloads/'+v.desktop.file;
+      }
+      if(v.android){
+        document.getElementById('v-android').textContent='v'+v.android.version+' Beta';
+        document.getElementById('s-android').textContent=v.android.size+' \u00B7 Android 8+';
+        document.getElementById('dl-android').href='/downloads/'+v.android.file;
+      }
+    }).catch(()=>{});
+  </script>
 </body>
 </html>

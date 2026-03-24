@@ -1,0 +1,17 @@
+{
+  "extension": {
+    "version": "1.1.0",
+    "file": "SyntroPass-Extension-1.1.0-chrome.zip",
+    "size": "129 KB"
+  },
+  "desktop": {
+    "version": "1.1.0",
+    "file": "SyntroPass-Setup-1.1.0.exe",
+    "size": "82 MB"
+  },
+  "android": {
+    "version": "1.1.0",
+    "file": "SyntroPass-1.1.0.apk",
+    "size": "4.5 MB"
+  }
+}
