@@ -113,6 +113,12 @@
     .card .size {
       font-size: 0.75rem;
       color: #52525b;
+      margin-bottom: 4px;
+    }
+
+    .card .build-date {
+      font-size: 0.7rem;
+      color: #3f3f46;
       margin-bottom: 12px;
     }
 
@@ -236,6 +242,7 @@
       <h2>Chrome Extension</h2>
       <p>Auto-Fill und Auto-Save direkt im Browser. Erkennt Login-Felder automatisch.</p>
       <div class="size" id="s-ext">126 KB &middot; Chrome / Edge / Brave</div>
+      <div class="build-date" id="bd-ext"></div>
       <a href="/downloads/SyntroPass-Extension-1.1.0-chrome.zip" id="dl-ext" class="btn btn-primary">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
         Download ZIP
@@ -250,6 +257,7 @@
       <h2>Windows Desktop</h2>
       <p>Native Desktop-App mit System-Tray Integration. Schneller Zugriff auf alle Passwörter.</p>
       <div class="size" id="s-desktop">82 MB &middot; Windows 10+</div>
+      <div class="build-date" id="bd-desktop"></div>
       <a href="/downloads/SyntroPass-Setup-1.1.0.exe" id="dl-desktop" class="btn btn-primary">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
         Download EXE
@@ -264,6 +272,7 @@
       <h2>Android App</h2>
       <p>Passwörter unterwegs dabei. Autofill-Service für alle Android-Apps.</p>
       <div class="size" id="s-android">4.5 MB &middot; Android 8+</div>
+      <div class="build-date" id="bd-android"></div>
       <a href="/downloads/SyntroPass-1.1.0.apk" id="dl-android" class="btn btn-primary">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
         Download APK
@@ -290,21 +299,30 @@
   </div>
 
   <script>
+    function fmtDate(iso){
+      if(!iso)return '';
+      var d=new Date(iso);
+      return d.toLocaleDateString('de-DE',{day:'2-digit',month:'2-digit',year:'numeric'})
+        +' '+d.toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'});
+    }
     fetch('/versions.json').then(r=>r.json()).then(v=>{
       if(v.extension){
         document.getElementById('v-ext').textContent='v'+v.extension.version;
         document.getElementById('s-ext').textContent=v.extension.size+' \u00B7 Chrome / Edge / Brave';
         document.getElementById('dl-ext').href='/downloads/'+v.extension.file;
+        document.getElementById('bd-ext').textContent='Build: '+fmtDate(v.extension.buildDate);
       }
       if(v.desktop){
         document.getElementById('v-desktop').textContent='v'+v.desktop.version;
         document.getElementById('s-desktop').textContent=v.desktop.size+' \u00B7 Windows 10+';
         document.getElementById('dl-desktop').href='/downloads/'+v.desktop.file;
+        document.getElementById('bd-desktop').textContent='Build: '+fmtDate(v.desktop.buildDate);
       }
       if(v.android){
         document.getElementById('v-android').textContent='v'+v.android.version+' Beta';
         document.getElementById('s-android').textContent=v.android.size+' \u00B7 Android 8+';
         document.getElementById('dl-android').href='/downloads/'+v.android.file;
+        document.getElementById('bd-android').textContent='Build: '+fmtDate(v.android.buildDate);
       }
     }).catch(()=>{});
   </script>
