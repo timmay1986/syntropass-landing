@@ -1,8 +1,8 @@
 {
   "extension": {
-    "version": "1.1.0",
-    "file": "SyntroPass-Extension-1.1.0-chrome.zip",
-    "size": "129 KB"
+    "version": "1.2.0",
+    "file": "SyntroPass-Extension-1.2.0-chrome.zip",
+    "size": "131 KB"
   },
   "desktop": {
     "version": "1.1.0",
@@ -10,8 +10,8 @@
     "size": "82 MB"
   },
   "android": {
-    "version": "1.1.0",
-    "file": "SyntroPass-1.1.0.apk",
-    "size": "4.5 MB"
+    "version": "1.2.0",
+    "file": "SyntroPass-1.2.0.apk",
+    "size": "4.0 MB"
   }
 }
