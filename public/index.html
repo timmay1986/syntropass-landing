@@ -268,12 +268,12 @@
       <div class="card-icon android">
         <svg width="28" height="28" viewBox="0 0 24 24" fill="#3ddc84"><path d="M17.523 2.237a.6.6 0 01.218.82L16.5 5.25A8.96 8.96 0 0121 13H3a8.96 8.96 0 014.5-7.75L6.259 3.057a.6.6 0 011.038-.6L8.6 4.75a8.9 8.9 0 013.4-.67c1.2 0 2.35.24 3.4.67l1.303-2.293a.6.6 0 01.82-.218zM10 9.5a1 1 0 10-2 0 1 1 0 002 0zm6 0a1 1 0 10-2 0 1 1 0 002 0zM3 14h18v5a3 3 0 01-3 3H6a3 3 0 01-3-3v-5z"/></svg>
       </div>
-      <span class="badge badge-beta" id="v-android">v1.1.0 Beta</span>
+      <span class="badge badge-beta" id="v-android">v1.4.0 Beta</span>
       <h2>Android App</h2>
       <p>Passwörter unterwegs dabei. Autofill-Service für alle Android-Apps.</p>
-      <div class="size" id="s-android">4.5 MB &middot; Android 8+</div>
+      <div class="size" id="s-android">4.1 MB &middot; Android 8+</div>
       <div class="build-date" id="bd-android"></div>
-      <a href="/downloads/SyntroPass-1.1.0.apk" id="dl-android" class="btn btn-primary">
+      <a href="/downloads/SyntroPass-1.4.0.apk" id="dl-android" class="btn btn-primary">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
         Download APK
       </a>
@@ -305,7 +305,7 @@
       return d.toLocaleDateString('de-DE',{day:'2-digit',month:'2-digit',year:'numeric'})
         +' '+d.toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'});
     }
-    fetch('/versions.json').then(r=>r.json()).then(v=>{
+    fetch('/versions.json?t='+Date.now(),{cache:'no-store'}).then(r=>r.json()).then(v=>{
       if(v.extension){
         document.getElementById('v-ext').textContent='v'+v.extension.version;
         document.getElementById('s-ext').textContent=v.extension.size+' \u00B7 Chrome / Edge / Brave';
