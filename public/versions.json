@@ -1,9 +1,10 @@
 {
   "extension": {
-    "version": "1.2.0",
-    "file": "SyntroPass-Extension-1.2.0-chrome.zip",
-    "size": "131 KB",
-    "buildDate": "2026-03-27T11:34:00+01:00"
+    "version": "1.6.7",
+    "file": "SyntroPass-Extension-1.6.7-chrome.zip",
+    "size": "168 KB",
+    "sha256": "e548e6c0ceff7f9722a53bf9a178ef8ef82478b0643cd4ea3613bbe8fe3e914d",
+    "buildDate": "2026-09-18T14:29:51.0938632+02:00"
   },
   "desktop": {
     "version": "1.1.0",
