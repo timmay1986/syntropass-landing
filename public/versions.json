@@ -13,10 +13,10 @@
     "buildDate": "2026-03-24T09:35:00+01:00"
   },
   "android": {
-    "version": "1.5.6",
-    "file": "SyntroPass-1.5.6.apk",
+    "version": "1.5.7",
+    "file": "SyntroPass-1.5.7.apk",
     "size": "4.0 MB",
-    "sha256": "e70ca671337fc9d7be18aea322a3954f6a8e2275ce1b5b433eddd6fe73d30864",
-    "buildDate": "2026-09-18T11:28:09.505Z"
+    "sha256": "a699a582ad148019c768d18d9aba7490bfb5f4f2f6a7ac8ddbbd44fdffcf5ae5",
+    "buildDate": "2026-09-19T08:31:27.495Z"
   }
 }
